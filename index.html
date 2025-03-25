@@ -165,25 +165,34 @@
     </footer>
     
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Defina seu número de WhatsApp aqui (com código do país)
-            const phoneNumber = "5515981271331"; // Substitua pelo seu número
-            
-            // Mensagem inicial com as perguntas
-            const initialMessage = 
-                "Olá! Gostaria de solicitar um serviço de manutenção.\n\n" +
-                "Por favor, preciso das seguintes informações:\n\n" +
-                "1) Nome completo:\n" +
-                "2) Empresa/Loja (se aplicável):\n" +
-                "3) Endereço completo:\n" +
-                "4) Tipo de reparo necessário (Elétrico, Hidráulico, Estrutural, Pintura, Outro):\n" +
-                "5) Descrição detalhada do problema:\n" +
-                "6) Data e horário preferencial para o serviço:";
-            
-            // Configurar o link do WhatsApp
-            const whatsappLink = document.getElementById('whatsappLink');
-            whatsappLink.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(initialMessage)}`;
-        });
+      document.addEventListener('DOMContentLoaded', function() {
+    // Defina seu número de WhatsApp aqui (com código do país)
+    const phoneNumber = "5511999999999"; // Substitua pelo seu número
+    
+    // Array com as perguntas na ordem
+    const questions = [
+        "Olá! Gostaria de solicitar um serviço de manutenção.",
+        "1) Qual é o seu nome completo?",
+        "2) Você representa uma empresa/loja? Se sim, qual?",
+        "3) Qual é o endereço completo para o serviço?",
+        "4) Qual tipo de reparo você precisa? (Elétrico, Hidráulico, Estrutural, Pintura, Outro)",
+        "5) Pode descrever detalhadamente o problema?",
+        "6) Qual data e horário preferencial para o serviço?"
+    ];
+    
+    // Função para gerar o link do WhatsApp com as perguntas
+    function generateWhatsAppLink() {
+        // Concatena todas as perguntas com quebras de linha
+        const initialMessage = questions.join("\n\n");
+        
+        // Cria o link do WhatsApp
+        return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(initialMessage)}`;
+    }
+    
+    // Configurar o link do WhatsApp
+    const whatsappLink = document.getElementById('whatsappLink');
+    whatsappLink.href = generateWhatsAppLink();
+});
     </script>
 </body>
 </html>
